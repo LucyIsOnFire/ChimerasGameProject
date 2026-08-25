@@ -1,0 +1,9 @@
+res://Stages/Main/Main.tscn
+res://Stages/Main/Main.cs
+res://Stages/Dev/DevLevel1/DevLevel1.tscn
+res://Stages/Dev/DevLevel1/DevLevel1.cs
+res://Stages/DevLevels/DevLevel1/DevLevel1.cs
+res://Stages/DevLevels/DevLevel1/DevLevel1.tscn
+res://Entities/Dev/DevCharacterBody/DevCharacterBody.tscn
+res://Entities/Dev/DevCharacterBody/DevCharacterBody.cs
+res://Common/Style Guide/StyleGuide.txt

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dvgf5klfwocwp"]
+
+[ext_resource type="Script" uid="uid://cgjyffkobuo5j" path="res://Entities/Dev/DevCharacterBody/DevCharacterBody.cs" id="1_r6srv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4jy0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u4jy0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u4jy0"]
+
+[node name="DevCharacterBody" type="CharacterBody3D" unique_id=1251772878]
+script = ExtResource("1_r6srv")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1128390492]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2034467414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_u4jy0")
+mesh = SubResource("CapsuleMesh_u4jy0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1668148684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_u4jy0")
