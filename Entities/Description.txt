@@ -1,0 +1,7 @@
+Characters, items, etc. that are going to be interactable in game. If it can be interacted in game, it goes here
+
+Ex.
+- Player
+- Enemies
+- Items
+- Effects

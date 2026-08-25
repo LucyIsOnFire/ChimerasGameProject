@@ -1,0 +1,7 @@
+UI of the game
+
+Ex.
+- Title Screens
+- Health/player UI
+- Settings UI
+- Splash Screen

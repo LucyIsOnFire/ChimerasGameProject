@@ -1,0 +1,6 @@
+Assets that are to be used throughout the game/in multiple places
+most assets will be in the folder they are used in, but these assets are for universally utilized/"global" assets
+
+Ex.
+- Music
+- Fonts
