@@ -8,6 +8,7 @@
 6. Constants and enum members are all capitals, with underscores as spaces
 7. Do Summaries of as many methods as possible, especially if the method is complex
 8. Add Descriptions and Summaries whenever and wherever possible for any abstract method or code
+9. Delegate variables end with "Delegate<Type>", either being an Action, Function, or Predicate
 
 Summary:
 /*
@@ -56,15 +57,12 @@ namespace Namespace
 		[Export]
 		private string privateExportedVariables;
 
-		public enum PublicEnums
-		{
-			ITEM1,
-			ITEM2,
-		}
-		
+		public delegate PublicDelegate;
+		private delegate PrivateDelegate;
+		(Use Action<>, Func<>, and Predicate<> to define delegates)
+
+		public enum PublicEnums (Enum items are all capitalized)
 		private enum privateEnums
-		{
-		}
 
 		public const string PUBLIC_CONSTANTS = "";
 		private const string PRIVATE_CONSTANTS = "";
@@ -74,6 +72,7 @@ namespace Namespace
 
 		public string PublicVariables;
 		private string privateVariables;
+		(Organize Variables based on usage/connection. Seperate class vairables from built in variables (ex. seperate Vector2 variable from float variable)
 
 		public override void _EnterTree(){}
 		public override void _Ready(){}
@@ -81,10 +80,10 @@ namespace Namespace
 		public override void _PhysicsProcess(double delta){}
 		public override void _UnhandledInput(InputEvent @event){}
 		public override void _Input(InputEvent @event){}
-		// public override void _OtherGodotVirtuals(){}
+		public override void _OtherGodotVirtuals(){}
 		public override void _ExitTree(){}
 
-		// public override void CustomMethod(){}
+		public virtual void CustomVirtual(){}
 
 		public void PublicMethods(){}
 		private void privateMethods(){}

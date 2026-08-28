@@ -2,13 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cwf2ajuo1i8qh" path="res://Stages/Main/Main.cs" id="1_nvc7p"]
 [ext_resource type="PackedScene" uid="uid://ghw0a0dfi5kl" path="res://Stages/DevLevels/DevLevel1/DevLevel1.tscn" id="2_so270"]
-[ext_resource type="PackedScene" uid="uid://dvgf5klfwocwp" path="res://Entities/Dev/DevCharacterBody/DevCharacterBody.tscn" id="3_a1nqw"]
+[ext_resource type="PackedScene" uid="uid://dwd6ahr3i7f0j" path="res://Utilities/PlayerSpawner/PlayerSpawner.tscn" id="3_a1nqw"]
+[ext_resource type="PackedScene" uid="uid://6etsd13d5lib" path="res://UI/NetworkUI/NetworkUI.tscn" id="4_cnpct"]
 
 [node name="Main" type="Node" unique_id=1360754039]
 script = ExtResource("1_nvc7p")
 
-[node name="DevCharacterBody" parent="." unique_id=1251772878 instance=ExtResource("3_a1nqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050468564, -0.08010507, 0.06334591)
-
 [node name="DevLevel1" parent="." unique_id=1157425535 instance=ExtResource("2_so270")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050468564, -0.08010507, 0.06334591)
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1771904496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94493747, 0)
+
+[node name="PlayerSpawner" parent="." unique_id=1708813843 instance=ExtResource("3_a1nqw")]
+
+[node name="NetworkUI" parent="." unique_id=1541935423 instance=ExtResource("4_cnpct")]

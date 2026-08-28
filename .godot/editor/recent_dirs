@@ -1,3 +1,6 @@
-res://Entities/Dev/DevCharacterBody/
+res://UI/NetworkUI/
+res://Utilities/PlayerSpawner/
+res://Common/NetworkHandler/
+res://UI/
 res://Stages/Main/
 res://Stages/
