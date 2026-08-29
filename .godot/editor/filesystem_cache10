@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1787764454
+::res://::1787971879
 ::res://Addons/::1787624771
 Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Addons/at-icons/::1787624807
@@ -3727,7 +3727,7 @@ Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Common/FRIDLerp/::1787678768
 FRIDLerp.cs::CSharpScript::7108151170675568569::1787680478::0::1::::<><><>0<>0<><>::
 ::res://Common/NetworkHandler/::1787716957
-NetworkHandler.cs::CSharpScript::3412799780523153318::1787720595::0::1::::<>Node<><>0<>0<><>::
+NetworkHandler.cs::CSharpScript::3412799780523153318::1787767989::0::1::::<>Node<><>0<>0<><>::
 ::res://Common/Style Guide/::1787678864
 StyleGuide.txt::TextFile::790103414774083793::1787715457::0::1::::<><><>0<>0<><>::
 ::res://Config/::1787624644
@@ -3735,10 +3735,10 @@ Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Entities/::1787678476
 Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Entities/Dev/::1787719597
-::res://Entities/Dev/DevCharacter/::1787764269
-DevCharacter.cs::CSharpScript::5214020244499884461::1787762189::0::1::::DevCharacter<>CharacterBody3D<><>0<>0<><>::
+::res://Entities/Dev/DevCharacter/::1787971733
+DevCharacter.cs::CSharpScript::5214020244499884461::1787766878::0::1::::DevCharacter<>CharacterBody3D<>uid://bq7xbel5bwuid<>0<>0<><>::
 DevCharacter.svg::CompressedTexture2D::3576900775110601891::1787678666::1787719597::1::::<><><>0<>0<>76bcfad53ce9555078c5118dee20ac4d<>res://.godot/imported/DevCharacter.svg-817864c9b500ae056a75572aea019099.ctex::
-DevCharacter.tscn::PackedScene::8645971735266800947::1787764269::0::1::::<><><>0<>0<><>::uid://cgjyffkobuo5j::::res://Entities/Dev/DevCharacter/DevCharacter.cs
+DevCharacter.tscn::PackedScene::8645971735266800947::1787971733::0::1::::<><><>0<>0<><>::uid://cgjyffkobuo5j::::res://Entities/Dev/DevCharacter/DevCharacter.cs
 ::res://Localization/::1787624644
 Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Stages/::1787676403
@@ -3746,19 +3746,19 @@ Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Stages/DevLevels/::1787676597
 DevLevelIcon.svg::CompressedTexture2D::8929942176331065297::1787676580::1787676589::1::::<><><>0<>0<>bef518adbb68657ec356dad3b35bc50a<>res://.godot/imported/DevLevelIcon.svg-05d2ccc64e3eb5115c632c6ead8b0996.ctex::
 ::res://Stages/DevLevels/DevLevel1/::1787716944
-DevLevel1.cs::CSharpScript::6678176371491104043::1787676887::0::1::::DevLevel1<>Node3D<><>0<>0<><>::
+DevLevel1.cs::CSharpScript::6678176371491104043::1787676887::0::1::::DevLevel1<>Node3D<>uid://d0hy3wp3gu6tp<>0<>0<><>::
 DevLevel1.tscn::PackedScene::436964163558545159::1787716944::0::1::::<><><>0<>0<><>::uid://c2e7ubb0ilaox::::res://Stages/DevLevels/DevLevel1/DevLevel1.cs<>uid://lrr0idmda272::::res://Assets/Dev/DevTexture1.png
 ::res://Stages/Main/::1787764511
-Main.cs::CSharpScript::6328957679275341387::1787681505::0::1::::Main<>Node<><>0<>0<><>::
+Main.cs::CSharpScript::6328957679275341387::1787681505::0::1::::Main<>Node<>uid://dt3nucrb8lx5r<>0<>0<><>::
 Main.tscn::PackedScene::2198542070730530479::1787764511::0::1::::<><><>0<>0<><>::uid://cwf2ajuo1i8qh::::res://Stages/Main/Main.cs<>uid://ghw0a0dfi5kl::::res://Stages/DevLevels/DevLevel1/DevLevel1.tscn<>uid://dwd6ahr3i7f0j::::res://Utilities/PlayerSpawner/PlayerSpawner.tscn<>uid://6etsd13d5lib::::res://UI/NetworkUI/NetworkUI.tscn
 MainIcon.svg::CompressedTexture2D::8551477825498023985::1787675072::1787675083::1::::<><><>0<>0<>0ba444528fbde6e89731af24e5bc862b<>res://.godot/imported/MainIcon.svg-819be756f3d6f5f4442c1e65bee7a42e.ctex::
 ::res://UI/::1787764454
 Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
-::res://UI/NetworkUI/::1787764539
-NetworkUi.cs::CSharpScript::715494641768367580::1787764552::0::1::::<><><>0<>0<><>::
-NetworkUI.tscn::PackedScene::2185297629960452189::1787764572::0::1::::<><><>0<>0<><>::uid://kgudeuoa140g::::res://UI/NetworkUI/NetworkUi.cs
+::res://UI/NetworkUI/::1787764942
+NetworkUI.cs::CSharpScript::715494641768367580::1787766075::0::1::::<>CanvasLayer<><>0<>0<><>::
+NetworkUI.tscn::PackedScene::2185297629960452189::1787764942::0::1::::<><><>0<>0<><>::uid://kgudeuoa140g::::res://UI/NetworkUI/NetworkUI.cs
 ::res://Utilities/::1787718058
 Description.txt::TextFile::-1::1787624644::0::1::::<><><>0<>0<><>::
 ::res://Utilities/PlayerSpawner/::1787721354
-PlayerSpawner.cs::CSharpScript::8729747230538553317::1787762040::0::1::::<>MultiplayerSpawner<><>0<>0<><>::
+PlayerSpawner.cs::CSharpScript::8729747230538553317::1787766865::0::1::::<>MultiplayerSpawner<><>0<>0<><>::
 PlayerSpawner.tscn::PackedScene::8711492366363228335::1787721354::0::1::::<><><>0<>0<><>::uid://dwm0wqv3bsru0::::res://Utilities/PlayerSpawner/PlayerSpawner.cs<>uid://dvgf5klfwocwp::::res://Entities/Dev/DevCharacter/DevCharacter.tscn

@@ -17,7 +17,6 @@ public partial class NetworkUI : CanvasLayer
     void onServerPressed()
     {
         NetworkHandler.Instance.StartServer();
-        GD.Print("hi");
         Hide();
     }
 

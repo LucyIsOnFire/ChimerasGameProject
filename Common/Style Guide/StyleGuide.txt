@@ -9,6 +9,7 @@
 7. Do Summaries of as many methods as possible, especially if the method is complex
 8. Add Descriptions and Summaries whenever and wherever possible for any abstract method or code
 9. Delegate variables end with "Delegate<Type>", either being an Action, Function, or Predicate
+10. Double Space before and after methods
 
 Summary:
 /*
