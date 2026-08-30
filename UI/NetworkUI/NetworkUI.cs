@@ -1,28 +1,37 @@
 using Godot;
-using NetworkMultiplayer;
+using System;
+
+[GlobalClass, Icon("uid://c87tr5a13dcah")]
 
 public partial class NetworkUI : CanvasLayer
 {
-    private Button clientButton, serverButton;
+    private Button joinButton, quitButton;
+
 
     public override void _Ready()
     {
-        clientButton = GetNode<Button>("%ClientButton");
-        serverButton = GetNode<Button>("%ServerButton");
+        if (OS.HasFeature("server"))
+        {
+            Hide();
+            return;
+        }
 
-        clientButton.Pressed += onClientPressed;
-        serverButton.Pressed += onServerPressed;
+        joinButton = GetNode<Button>("%JoinButton");
+        quitButton = GetNode<Button>("%QuitButton");
+
+        joinButton.Pressed += joinButtonPressed;
+        quitButton.Pressed += quitButtonPressed;
     }
 
-    void onServerPressed()
+    private void joinButtonPressed()
     {
-        NetworkHandler.Instance.StartServer();
+        NetworkHandler.Instance.JoinServer();
         Hide();
     }
 
-    void onClientPressed()
+    private void quitButtonPressed()
     {
-        NetworkHandler.Instance.StartClient();
-        Hide();
+        GD.Print("Bye!");
+        GetTree().Quit();
     }
 }

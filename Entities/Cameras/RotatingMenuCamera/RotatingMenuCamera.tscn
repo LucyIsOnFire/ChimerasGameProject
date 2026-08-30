@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://iwwnm8y50fj4"]
+
+[ext_resource type="Script" uid="uid://b54dfg0cdw56p" path="res://Entities/Cameras/RotatingMenuCamera/RotatingMenuCamera.cs" id="1_dg0wr"]
+
+[node name="RotatingMenuCamera" type="Node3D" unique_id=1492252526]
+script = ExtResource("1_dg0wr")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=326294611]
+transform = Transform3D(0.70710677, -0.35355338, 0.6123724, 0, 0.8660254, 0.5, -0.70710677, -0.35355338, 0.6123724, 0, 0, 0)
+collision_mask = 0
+spring_length = 17.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=2123381797]

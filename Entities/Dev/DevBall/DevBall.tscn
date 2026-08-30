@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://baliedu8gj2t6"]
+
+[ext_resource type="Script" uid="uid://d1ntdavs10i11" path="res://Entities/Dev/DevBall/DevBall.cs" id="1_vepq2"]
+[ext_resource type="Texture2D" uid="uid://lrr0idmda272" path="res://Assets/Dev/DevTexture1.png" id="2_cjejm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_canjr"]
+albedo_color = Color(0, 1, 1, 1)
+albedo_texture = ExtResource("2_cjejm")
+uv1_scale = Vector3(2, 1, 2)
+texture_filter = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_vepq2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vepq2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cjejm"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="DevBall" type="RigidBody3D" unique_id=108498578]
+script = ExtResource("1_vepq2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1587286418]
+material_override = SubResource("StandardMaterial3D_canjr")
+mesh = SubResource("SphereMesh_vepq2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=141238927]
+shape = SubResource("SphereShape3D_vepq2")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=373927217]
+replication_config = SubResource("SceneReplicationConfig_cjejm")
