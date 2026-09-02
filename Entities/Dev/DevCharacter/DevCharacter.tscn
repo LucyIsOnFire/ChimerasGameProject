@@ -45,3 +45,33 @@ text = "Invalid ID"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=963618104]
 replication_config = SubResource("SceneReplicationConfig_ej42m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1761439627]
+
+[node name="PlayerUI" type="Control" parent="CanvasLayer" unique_id=2084621526]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PlayerUI" unique_id=938221101]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PlayerUI/PanelContainer" unique_id=371071671]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LeaveButton" type="Button" parent="CanvasLayer/PlayerUI/PanelContainer/MarginContainer" unique_id=1168329717]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Leave"

@@ -1,3 +1,8 @@
+Button
+MarginContainer
+PanelContainer
+Control
+CanvasLayer
 Node3D
 Marker3D
 Node
@@ -7,9 +12,3 @@ MeshInstance3D
 CollisionShape3D
 RigidBody3D
 Label3D
-Camera3D
-SpringArm3D
-StaticBody3D
-MarginContainer
-VBoxContainer
-VSplitContainer

@@ -102,5 +102,4 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
 [node name="DevCharacterSpawner" parent="." unique_id=1951118915 instance=ExtResource("5_fcc2i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.237757)
 player = ExtResource("6_fqt4n")

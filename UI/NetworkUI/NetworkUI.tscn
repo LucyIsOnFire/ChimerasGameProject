@@ -43,14 +43,20 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="Label" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering/LabelMargin" unique_id=1017201552]
 layout_mode = 2
-text = "Network"
+text = "CHIMERAs"
+horizontal_alignment = 1
 
-[node name="JoinButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=1523520356]
+[node name="JoinButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=1809219374]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Join"
 
-[node name="QuitButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=919692655]
+[node name="HostButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=1807915101]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Host"
+
+[node name="QuitButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=2098725584]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"

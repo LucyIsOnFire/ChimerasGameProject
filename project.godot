@@ -17,7 +17,7 @@ config/icon="res://Assets/Dev/Icon.svg"
 
 [autoload]
 
-NetworkHandler="*uid://b4nohad85alg4"
+Networking="*uid://bm2myp5i71ft4"
 
 [display]
 
@@ -114,3 +114,8 @@ leftMouse={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+
+[steam]
+
+initialization/app_data/app_id=480
+initialization/processes/initialize_on_startup=true

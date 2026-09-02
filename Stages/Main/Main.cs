@@ -5,8 +5,4 @@ using System;
 
 public partial class Main : Node
 {
-    public override void _Ready()
-    {
-        if (OS.HasFeature("server")) NetworkHandler.Instance.CreateServer();
-    }
 }

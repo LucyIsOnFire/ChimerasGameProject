@@ -5,33 +5,33 @@ using System;
 
 public partial class NetworkUI : CanvasLayer
 {
-    private Button joinButton, quitButton;
-
+    private Button hostButton, joinButton, quitButton;
 
     public override void _Ready()
     {
-        if (OS.HasFeature("server"))
-        {
-            Hide();
-            return;
-        }
-
+        hostButton = GetNode<Button>("%HostButton");
         joinButton = GetNode<Button>("%JoinButton");
         quitButton = GetNode<Button>("%QuitButton");
 
+        hostButton.Pressed += hostButtonPressed;
         joinButton.Pressed += joinButtonPressed;
         quitButton.Pressed += quitButtonPressed;
     }
 
+    private void hostButtonPressed()
+    {
+        Networking.Instance.CreateServer();
+        Hide();
+    }
+
     private void joinButtonPressed()
     {
-        NetworkHandler.Instance.JoinServer();
+        Networking.Instance.JoinServer();
         Hide();
     }
 
     private void quitButtonPressed()
     {
-        GD.Print("Bye!");
         GetTree().Quit();
     }
 }

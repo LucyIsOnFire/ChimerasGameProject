@@ -15,6 +15,8 @@ namespace Development
         private Camera3D camera;
         private CollisionShape3D collisionShape;
         private Node3D cameraPivot;
+        private Control playerUI;
+        private Button leaveButton;
 
         private bool noClipEnabled = false;
 
@@ -34,7 +36,6 @@ namespace Development
             SetMultiplayerAuthority(Name.ToString().ToInt());
         }
 
-
         public override void _Ready()
         {
             GetNode<Label3D>("%Label3D").Text = Name;
@@ -52,12 +53,17 @@ namespace Development
             camera = GetNode<Camera3D>("%Camera3D");
             collisionShape = GetNode<CollisionShape3D>("%CollisionShape3D");
             cameraPivot = GetNode<Node3D>("%CameraPivot");
+            playerUI = GetNode<Control>("%PlayerUI");
+            leaveButton = GetNode<Button>("%LeaveButton");
+
+            playerUI.Visible = false;
 
             camera.Current = true;
 
             movementDelegateAction = normalMovement;
-        }
 
+            leaveButton.Pressed += returnToMenu;
+        }
 
         public override void _PhysicsProcess(double delta)
         {
@@ -78,11 +84,11 @@ namespace Development
             MoveAndSlide();
         }
 
-
         public override void _UnhandledInput(InputEvent @event)
         {
             if (@event is InputEventMouseButton && Input.MouseMode == Input.MouseModeEnum.Visible)
             {
+                playerUI.Hide();
                 Input.MouseMode = Input.MouseModeEnum.Captured;
             }
 
@@ -95,12 +101,15 @@ namespace Development
             if (@event is InputEventKey)
             {
                 if (Input.IsActionJustPressed("noClipToggle")) noClipEnabled = !noClipEnabled;
-                if (Input.IsActionJustPressed("escape") && Input.MouseMode == Input.MouseModeEnum.Captured) Input.MouseMode = Input.MouseModeEnum.Visible;
+                if (Input.IsActionJustPressed("escape") && Input.MouseMode == Input.MouseModeEnum.Captured) 
+                {
+                    playerUI.Show();
+                    Input.MouseMode = Input.MouseModeEnum.Visible;
+                }
             }
 
             if (@event is InputEventMouseMotion _motion) rotateCamera(_motion.Relative);
         }
-
 
         //Method that gives the player a more normal movement and jump
         private void normalMovement(Vector2 input, float delta)
@@ -112,7 +121,6 @@ namespace Development
             if (IsOnFloor() && Input.IsActionJustPressed("moveJump")) Velocity += Vector3.Up * jumpForce;
             
         }
-
 
         //Method that gives the player more noclip/developer flight. Useful for debugging
         private void noClipMovement(Vector2 input, float delta)
@@ -143,6 +151,11 @@ namespace Development
             GlobalMultiplayerSpawner.ParentScene.AddChild(ballInstance, true);
             ballInstance.GlobalPosition = position + direction;
             ballInstance.ApplyCentralImpulse(direction * force);
+        }
+
+        private void returnToMenu()
+        {
+            Networking.Instance.LeaveServer();
         }
     }
 }

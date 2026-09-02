@@ -14,7 +14,6 @@ public partial class DevCharacterSpawner : Marker3D
         Multiplayer.PeerDisconnected += removePlayer;
     }
 
-
     private void addPlayer(long peerID)
     {
         GlobalMultiplayerSpawner.Instance.SpawnFunction = new(this, MethodName.createPlayerInstance);
@@ -23,13 +22,10 @@ public partial class DevCharacterSpawner : Marker3D
         GlobalMultiplayerSpawner.Instance.Spawn(peerID);
     }
 
-
     private void removePlayer(long peerID)
     {
         if (!Multiplayer.IsServer()) return;
-
         Node _playerToRemove = spawnedPlayers[peerID.ToString()];
-
         spawnedPlayers.Remove(peerID.ToString());
 
         _playerToRemove.QueueFree();
