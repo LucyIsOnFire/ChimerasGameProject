@@ -1,4 +1,3 @@
-res://Stages/Main/Main.tscn
 res://Utilities/GlobalMultiplayerSpawner/GlobalMultiplayerSpawner.cs
 res://UI/NetworkUI/NetworkUI.cs
 res://Entities/Dev/DevCharacter/DevCharacter.cs
@@ -8,6 +7,6 @@ res://Entities/Cameras/RotatingMenuCamera/RotatingMenuCamera.cs
 res://Stages/DevLevels/DevLevel1/DevLevel1.cs
 res://Stages/Main/Main.cs
 res://Utilities/Handlers/NetworkHandler/NetworkHandler.cs
-res://Entities/Spawners/DevCharacterSpawner.tscn
-res://Stages/DevLevels/DevLevel1/DevLevel1.tscn
-res://Entities/Dev/DevCharacter/DevCharacter.tscn
+res://Stages/Main/Main.tscn
+res://Entities/Dev/DevBall/DevBall.tscn
+res://UI/NetworkUI/NetworkUI.tscn

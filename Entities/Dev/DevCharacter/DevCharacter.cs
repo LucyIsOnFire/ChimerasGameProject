@@ -136,7 +136,7 @@ namespace Development
             camera.Rotation = new Vector3(_verticalCameraClamp, camera.Rotation.Y, camera.Rotation.Z);
         }
 
-        [Rpc(MultiplayerApi.RpcMode.Authority)]
+        [Rpc]
         private void shootBall(Vector3 position, Vector3 direction, float force)
         {
             RigidBody3D ballInstance = (RigidBody3D)ballScene.Instantiate();

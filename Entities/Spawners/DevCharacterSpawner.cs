@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class DevCharacterSpawner : Marker3D
@@ -7,7 +6,7 @@ public partial class DevCharacterSpawner : Marker3D
     [Export]
     PackedScene player;
 
-    Dictionary<string, Node> spawnedPlayers = [];
+    Dictionary<string, Node3D> spawnedPlayers = [];
 
     public override void _Ready()
     {
@@ -18,13 +17,10 @@ public partial class DevCharacterSpawner : Marker3D
 
     private void addPlayer(long peerID)
     {
+        GlobalMultiplayerSpawner.Instance.SpawnFunction = new(this, MethodName.createPlayerInstance);
+        
         if (!Multiplayer.IsServer()) return;
-
-        Node3D _newPlayer = (Node3D)player.Instantiate();
-        _newPlayer.Name = peerID.ToString();
-        GlobalMultiplayerSpawner.ParentScene.AddChild(_newPlayer);
-
-        spawnedPlayers[_newPlayer.Name] = _newPlayer;
+        GlobalMultiplayerSpawner.Instance.Spawn(peerID);
     }
 
 
@@ -37,5 +33,14 @@ public partial class DevCharacterSpawner : Marker3D
         spawnedPlayers.Remove(peerID.ToString());
 
         _playerToRemove.QueueFree();
+    }
+
+    private Node createPlayerInstance(long id)
+    {
+        Node3D _newPlayer = (Node3D)player.Instantiate();
+        _newPlayer.Name = id.ToString();
+        spawnedPlayers[_newPlayer.Name] = _newPlayer;
+        _newPlayer.Position = GlobalPosition + (Vector3.Forward * GD.RandRange(-10, 10)) + (Vector3.Right * GD.RandRange(-10, 10));
+        return _newPlayer;
     }
 }
