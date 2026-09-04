@@ -4,14 +4,14 @@ using Godot;
 
 public partial class MainScene : Node
 {
-    public Node3D LevelRoot, EntityRoot, EffectsRoot;
+    public Node3D LevelRoot, EntityRoot, EffectRoot;
     public Control HUDRoot, PauseRoot, TransitionRoot, DebugRoot;
 
     public override void _Ready()
     {
         LevelRoot = GetNode<Node3D>("%LevelRoot");
         EntityRoot = GetNode<Node3D>("%EntityRoot");
-        EffectsRoot = GetNode<Node3D>("%EffectsRoot");
+        EffectRoot = GetNode<Node3D>("%EffectRoot");
 
         HUDRoot = GetNode<Control>("%HUDRoot");
         PauseRoot = GetNode<Control>("%PauseRoot");

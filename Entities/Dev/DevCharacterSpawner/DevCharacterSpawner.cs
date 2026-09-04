@@ -16,10 +16,10 @@ public partial class DevCharacterSpawner : Marker3D
 
     void addDevCharacter(long peerID)
     {
-        GlobalMultiplayerSpawner.Instance.SpawnFunction = new(this, MethodName.spawnDevCharacter);
+        //GlobalMultiplayerSpawner.Instance.SpawnFunction = new(this, MethodName.spawnDevCharacter);
 
         if (!Multiplayer.IsServer()) return;
-        GlobalMultiplayerSpawner.Instance.Spawn(peerID);
+        //GlobalMultiplayerSpawner.Instance.Spawn(peerID);
     }
 
     void removeDevCharacter(long peerID)

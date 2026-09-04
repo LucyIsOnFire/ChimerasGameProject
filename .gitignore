@@ -4,3 +4,5 @@
 /android/
 /Addons/*
 !.Addons/Description.txt
+!Addons/godotsteam/
+!Addons/svg-repo-icons/
