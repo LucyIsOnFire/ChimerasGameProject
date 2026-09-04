@@ -3,33 +3,22 @@ using System;
 
 namespace Development
 {
-    [GlobalClass, Icon("uid://bq7xbel5bwuid")]
+    [Icon("uid://bq7xbel5bwuid")]
 
     public partial class DevCharacter : CharacterBody3D
     {
-        [Export]
-        PackedScene ballScene;
+        Camera3D camera;
+        CollisionShape3D collisionShape;
+        Node3D cameraPivot;
 
-        private Action<Vector2, float> movementDelegateAction;
-        
-        private Camera3D camera;
-        private CollisionShape3D collisionShape;
-        private Node3D cameraPivot;
-        private Control playerUI;
-        private Button leaveButton;
+        float moveSpeed = 10f;
+        float gravityForce = 9.8f;
+        float jumpForce = 5f;
 
-        private bool noClipEnabled = false;
+        float maxCameraAngle = 90f;
+        float minCameraAngle = 90f;
 
-        private float moveSpeed = 10f;
-        private float gravityForce = 9.8f;
-        private float jumpForce = 5f;
-
-        private float maxCameraAngle = 90f;
-        private float minCameraAngle = 90f;
-
-        private float mouseSensitivity = 0.01f;
-
-        private float ballShootForce = 10f;
+        float mouseSensitivity = 0.01f;
 
         public override void _EnterTree()
         {
@@ -38,9 +27,9 @@ namespace Development
 
         public override void _Ready()
         {
-            GetNode<Label3D>("%Label3D").Text = Name;
+            GetNode<Label3D>("%Label3D").Text = Name.ToString();
 
-            if (!IsMultiplayerAuthority()) 
+            if (!IsMultiplayerAuthority())
             {
                 SetProcess(false);
                 SetPhysicsProcess(false);
@@ -53,16 +42,8 @@ namespace Development
             camera = GetNode<Camera3D>("%Camera3D");
             collisionShape = GetNode<CollisionShape3D>("%CollisionShape3D");
             cameraPivot = GetNode<Node3D>("%CameraPivot");
-            playerUI = GetNode<Control>("%PlayerUI");
-            leaveButton = GetNode<Button>("%LeaveButton");
-
-            playerUI.Visible = false;
 
             camera.Current = true;
-
-            movementDelegateAction = normalMovement;
-
-            leaveButton.Pressed += returnToMenu;
         }
 
         public override void _PhysicsProcess(double delta)
@@ -71,39 +52,26 @@ namespace Development
 
             if (Input.MouseMode == Input.MouseModeEnum.Captured)
             {
-                movementDelegateAction = noClipEnabled ? noClipMovement : normalMovement;
-                movementDelegateAction(_input, (float)delta);
+                normalMovement(_input);
             }
             else
             {
                 Velocity *= Vector3.Up;
             }
 
-            if (!IsOnFloor() && !noClipEnabled) Velocity += Vector3.Down * gravityForce * (float)delta;
+            if (!IsOnFloor()) Velocity += Vector3.Down * gravityForce * (float)delta;
 
             MoveAndSlide();
         }
 
         public override void _UnhandledInput(InputEvent @event)
         {
-            if (@event is InputEventMouseButton && Input.MouseMode == Input.MouseModeEnum.Visible)
-            {
-                playerUI.Hide();
-                Input.MouseMode = Input.MouseModeEnum.Captured;
-            }
-
-            if (@event is InputEventMouseButton && Input.MouseMode == Input.MouseModeEnum.Captured)
-            {
-                if (Input.IsActionJustPressed("leftMouse")) RpcId(1, MethodName.shootBall, camera.GlobalPosition, -camera.GlobalBasis.Z, ballShootForce);
-                
-            }
+            if (@event is InputEventMouseButton && Input.MouseMode == Input.MouseModeEnum.Visible) Input.MouseMode = Input.MouseModeEnum.Captured;
 
             if (@event is InputEventKey)
             {
-                if (Input.IsActionJustPressed("noClipToggle")) noClipEnabled = !noClipEnabled;
                 if (Input.IsActionJustPressed("escape") && Input.MouseMode == Input.MouseModeEnum.Captured) 
                 {
-                    playerUI.Show();
                     Input.MouseMode = Input.MouseModeEnum.Visible;
                 }
             }
@@ -111,8 +79,7 @@ namespace Development
             if (@event is InputEventMouseMotion _motion) rotateCamera(_motion.Relative);
         }
 
-        //Method that gives the player a more normal movement and jump
-        private void normalMovement(Vector2 input, float delta)
+        void normalMovement(Vector2 input)
         {
             if (collisionShape.Disabled) collisionShape.Disabled = false;
             Vector3 _moveVector = cameraPivot.GlobalBasis.X * input.X + cameraPivot.GlobalBasis.Z * input.Y;
@@ -122,18 +89,7 @@ namespace Development
             
         }
 
-        //Method that gives the player more noclip/developer flight. Useful for debugging
-        private void noClipMovement(Vector2 input, float delta)
-        {
-            if (!collisionShape.Disabled) collisionShape.Disabled = true;
-            
-            Velocity = (cameraPivot.GlobalBasis.X * input.X + cameraPivot.GlobalBasis.Z * input.Y) * moveSpeed;
-
-            if (Input.IsActionPressed("noClipUp")) Velocity += Vector3.Up * moveSpeed;
-            if (Input.IsActionPressed("noClipDown")) Velocity += Vector3.Down * moveSpeed;
-        }
-
-        private void rotateCamera(Vector2 mouseMotion)
+        void rotateCamera(Vector2 mouseMotion)
         {
             if (Input.MouseMode != Input.MouseModeEnum.Captured) return;
 
@@ -142,20 +98,6 @@ namespace Development
 
             float _verticalCameraClamp = Mathf.Clamp(camera.Rotation.X, -Mathf.DegToRad(minCameraAngle), Mathf.DegToRad(maxCameraAngle));
             camera.Rotation = new Vector3(_verticalCameraClamp, camera.Rotation.Y, camera.Rotation.Z);
-        }
-
-        [Rpc]
-        private void shootBall(Vector3 position, Vector3 direction, float force)
-        {
-            RigidBody3D ballInstance = (RigidBody3D)ballScene.Instantiate();
-            GlobalMultiplayerSpawner.ParentScene.AddChild(ballInstance, true);
-            ballInstance.GlobalPosition = position + direction;
-            ballInstance.ApplyCentralImpulse(direction * force);
-        }
-
-        private void returnToMenu()
-        {
-            Networking.Instance.LeaveServer();
         }
     }
 }

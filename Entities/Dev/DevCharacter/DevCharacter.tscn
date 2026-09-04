@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dvgf5klfwocwp"]
 
 [ext_resource type="Script" uid="uid://cgjyffkobuo5j" path="res://Entities/Dev/DevCharacter/DevCharacter.cs" id="1_qeb57"]
-[ext_resource type="PackedScene" uid="uid://baliedu8gj2t6" path="res://Entities/Dev/DevBall/DevBall.tscn" id="2_jlaji"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4jy0"]
 
@@ -16,7 +15,11 @@ properties/0/replication_mode = 1
 
 [node name="DevCharacter" type="CharacterBody3D" unique_id=1251772878]
 script = ExtResource("1_qeb57")
-ballScene = ExtResource("2_jlaji")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1820143532]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.317128, 0)
+billboard = 1
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=55296324]
 unique_name_in_owner = true
@@ -37,41 +40,5 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_u4jy0")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=49004019]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.461638, 0)
-billboard = 1
-text = "Invalid ID"
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=963618104]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1336856574]
 replication_config = SubResource("SceneReplicationConfig_ej42m")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1761439627]
-
-[node name="PlayerUI" type="Control" parent="CanvasLayer" unique_id=2084621526]
-unique_name_in_owner = true
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PlayerUI" unique_id=938221101]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PlayerUI/PanelContainer" unique_id=371071671]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="LeaveButton" type="Button" parent="CanvasLayer/PlayerUI/PanelContainer/MarginContainer" unique_id=1168329717]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Leave"

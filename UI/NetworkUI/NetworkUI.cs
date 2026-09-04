@@ -1,37 +1,27 @@
 using Godot;
-using System;
 
-[GlobalClass, Icon("uid://c87tr5a13dcah")]
+[Icon("uid://c87tr5a13dcah")]
 
-public partial class NetworkUI : CanvasLayer
+public partial class NetworkUI : Control
 {
-    private Button hostButton, joinButton, quitButton;
+    Button ENetHostButton, ENetJoinButton;
 
     public override void _Ready()
     {
-        hostButton = GetNode<Button>("%HostButton");
-        joinButton = GetNode<Button>("%JoinButton");
-        quitButton = GetNode<Button>("%QuitButton");
+        ENetHostButton = GetNode<Button>("%ENetHostButton");
+        ENetJoinButton = GetNode<Button>("%ENetJoinButton");
 
-        hostButton.Pressed += hostButtonPressed;
-        joinButton.Pressed += joinButtonPressed;
-        quitButton.Pressed += quitButtonPressed;
+        ENetHostButton.Pressed += eNetHostButtonPressed;
+        ENetJoinButton.Pressed += eNetJoinButtonPressed;
     }
 
-    private void hostButtonPressed()
+    void eNetHostButtonPressed()
     {
-        Networking.Instance.CreateServer();
-        Hide();
+        if (NetworkHandler.Instance.ENetCreateServer()) Hide();
     }
 
-    private void joinButtonPressed()
+    void eNetJoinButtonPressed()
     {
-        Networking.Instance.JoinServer();
-        Hide();
-    }
-
-    private void quitButtonPressed()
-    {
-        GetTree().Quit();
+        if (NetworkHandler.Instance.ENetJoinServer()) Hide();
     }
 }

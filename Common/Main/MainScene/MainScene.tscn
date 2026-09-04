@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://6k8wwx0cyst8"]
+
+[ext_resource type="Script" uid="uid://cwf2ajuo1i8qh" path="res://Common/Main/MainScene/MainScene.cs" id="1_h1r3e"]
+[ext_resource type="Script" uid="uid://dyij0f8xer5vv" path="res://Common/Main/HeadScenes/SystemsHead/SystemsHead.cs" id="2_qfqfa"]
+[ext_resource type="Script" uid="uid://dc6t6btee6l3c" path="res://Common/Main/HeadScenes/WorldHead/WorldHead.cs" id="2_tcsxn"]
+[ext_resource type="Script" uid="uid://cusck5asc4gdw" path="res://Common/Main/SceneRoots/LevelRoot/LevelRoot.cs" id="3_jsjox"]
+[ext_resource type="Script" uid="uid://f62vlpbjm26y" path="res://Common/Main/HeadScenes/UIHead/UIHead.cs" id="5_16apb"]
+[ext_resource type="Script" uid="uid://b084wm4wadaeg" path="res://Common/Main/SceneRoots/EntityRoot/EntityRoot.cs" id="5_k0wmo"]
+[ext_resource type="Script" uid="uid://d4hdigw2i2u2x" path="res://Common/Main/SceneRoots/HUDRoot/HUDRoot.cs" id="6_s5run"]
+[ext_resource type="Script" uid="uid://b0luuwg7ey1gu" path="res://Common/Main/SceneRoots/EffectRoot/EffectRoot.cs" id="7_k0wmo"]
+[ext_resource type="Script" uid="uid://briv152q5wb5" path="res://Common/Main/SceneRoots/PauseRoot/PauseRoot.cs" id="8_ddykb"]
+[ext_resource type="Script" uid="uid://dw4pn8m6ejot2" path="res://Common/Main/SceneRoots/DebugRoot/DebugRoot.cs" id="9_16apb"]
+[ext_resource type="Script" uid="uid://bjfjtj7pd3wkw" path="res://Common/Main/SceneRoots/TransitionRoot/TransitionRoot.cs" id="10_cie7m"]
+
+[node name="MainScene" type="Node" unique_id=1360754039]
+script = ExtResource("1_h1r3e")
+
+[node name="SystemsHead" type="Node" parent="." unique_id=850043373]
+script = ExtResource("2_qfqfa")
+
+[node name="WorldHead" type="Node3D" parent="." unique_id=2066713567]
+process_mode = 1
+script = ExtResource("2_tcsxn")
+
+[node name="LevelRoot" type="Node3D" parent="WorldHead" unique_id=305177540]
+unique_name_in_owner = true
+script = ExtResource("3_jsjox")
+
+[node name="EntityRoot" type="Node3D" parent="WorldHead" unique_id=892493564]
+unique_name_in_owner = true
+script = ExtResource("5_k0wmo")
+
+[node name="EffectRoot" type="Node3D" parent="WorldHead" unique_id=1579647841]
+unique_name_in_owner = true
+script = ExtResource("7_k0wmo")
+
+[node name="UIHead" type="Node" parent="." unique_id=1392347670]
+script = ExtResource("5_16apb")
+
+[node name="HUDLayer" type="CanvasLayer" parent="UIHead" unique_id=1154795456]
+layer = 10
+
+[node name="HUDRoot" type="Control" parent="UIHead/HUDLayer" unique_id=1183323749]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_s5run")
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="UIHead" unique_id=1285838181]
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="UIHead/PauseLayer" unique_id=1707858836]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_ddykb")
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="UIHead" unique_id=1094432232]
+layer = 80
+
+[node name="TransitionRoot" type="Control" parent="UIHead/TransitionLayer" unique_id=362466041]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_cie7m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="UIHead" unique_id=1508538185]
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="UIHead/DebugLayer" unique_id=864231072]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_16apb")

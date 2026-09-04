@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://6ms4cx1yqy1g"]
+
+[ext_resource type="Script" uid="uid://c7ek3e38uh8o6" path="res://Entities/Dev/DevCharacterSpawner/DevCharacterSpawner.cs" id="1_fteuy"]
+[ext_resource type="PackedScene" uid="uid://dvgf5klfwocwp" path="res://Entities/Dev/DevCharacter/DevCharacter.tscn" id="2_u16i5"]
+
+[node name="DevCharacterSpawner" type="Marker3D" unique_id=1221952248]
+script = ExtResource("1_fteuy")
+devCharacter = ExtResource("2_u16i5")

@@ -2,4 +2,3 @@ Scripts, Shaders, and other items that are not directly tied to this game/can be
 
 Ex.
 - Math Functions
-- Main Scene

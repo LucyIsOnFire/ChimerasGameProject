@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cops5jxx7rfek"]
-
-[ext_resource type="Script" uid="uid://dvnjyel7moblg" path="res://Entities/Spawners/DevCharacterSpawner.cs" id="1_kmd4a"]
-
-[node name="DevCharacterSpawner" type="Marker3D" unique_id=1951118915]
-script = ExtResource("1_kmd4a")

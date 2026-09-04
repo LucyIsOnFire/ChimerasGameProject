@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Chimeras"
+config/name="CHIMERAs"
 run/main_scene="uid://6k8wwx0cyst8"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
-config/icon="res://Assets/Dev/Icon.svg"
+config/icon="uid://b4gim56t7ug4b"
 
 [autoload]
 
-Networking="*uid://bm2myp5i71ft4"
+NetworkHandler="*uid://dmd8ycyh6wv7o"
 
 [display]
 
@@ -114,8 +114,3 @@ leftMouse={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-
-[steam]
-
-initialization/app_data/app_id=480
-initialization/processes/initialize_on_startup=true

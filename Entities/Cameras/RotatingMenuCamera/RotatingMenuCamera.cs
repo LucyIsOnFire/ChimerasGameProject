@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-[GlobalClass, Icon("uid://jt37krmpsgnt")]
+[Icon("uid://jt37krmpsgnt")]
 
 public partial class RotatingMenuCamera : Node3D
 {

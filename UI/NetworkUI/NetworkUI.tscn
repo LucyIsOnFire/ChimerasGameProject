@@ -1,62 +1,58 @@
-[gd_scene format=3 uid="uid://ctetuh2ljuxui"]
+[gd_scene format=3 uid="uid://6etsd13d5lib"]
 
-[ext_resource type="Script" uid="uid://fljj6j30sxde" path="res://UI/NetworkUI/NetworkUI.cs" id="1_0siwp"]
+[ext_resource type="Script" uid="uid://fljj6j30sxde" path="res://UI/NetworkUI/NetworkUI.cs" id="1_ht78h"]
 
-[node name="NetworkUi" type="CanvasLayer" unique_id=2146284349]
-script = ExtResource("1_0siwp")
-
-[node name="FullscreenControl" type="Control" parent="." unique_id=858101593]
+[node name="NetworkUI" type="Control" unique_id=1422745273]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ht78h")
 
-[node name="CenterPanel" type="PanelContainer" parent="FullscreenControl" unique_id=1777319830]
+[node name="ENetConnection" type="PanelContainer" parent="." unique_id=1659554029]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -47.5
+offset_top = -59.0
+offset_right = 47.5
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PaddingContainer" type="MarginContainer" parent="FullscreenControl/CenterPanel" unique_id=311183787]
+[node name="MarginContainer" type="MarginContainer" parent="ENetConnection" unique_id=596913603]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VerticalOrdering" type="VBoxContainer" parent="FullscreenControl/CenterPanel/PaddingContainer" unique_id=943820067]
+[node name="VBoxContainer" type="VBoxContainer" parent="ENetConnection/MarginContainer" unique_id=364512706]
 layout_mode = 2
 
-[node name="LabelMargin" type="MarginContainer" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=1518540593]
+[node name="ENetTitle" type="MarginContainer" parent="ENetConnection/MarginContainer/VBoxContainer" unique_id=2057228084]
 layout_mode = 2
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering/LabelMargin" unique_id=1017201552]
+[node name="Label" type="Label" parent="ENetConnection/MarginContainer/VBoxContainer/ENetTitle" unique_id=2014185228]
 layout_mode = 2
-text = "CHIMERAs"
+text = "ENet"
 horizontal_alignment = 1
 
-[node name="JoinButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=1809219374]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Join"
-
-[node name="HostButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=1807915101]
+[node name="ENetHostButton" type="Button" parent="ENetConnection/MarginContainer/VBoxContainer" unique_id=497247614]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Host"
 
-[node name="QuitButton" type="Button" parent="FullscreenControl/CenterPanel/PaddingContainer/VerticalOrdering" unique_id=2098725584]
+[node name="ENetJoinButton" type="Button" parent="ENetConnection/MarginContainer/VBoxContainer" unique_id=1954216393]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-text = "Quit"
+text = "Join"

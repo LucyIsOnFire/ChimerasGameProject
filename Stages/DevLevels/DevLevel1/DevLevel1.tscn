@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://lrr0idmda272" path="res://Assets/Dev/DevTexture1.png" id="2_nwqkv"]
 [ext_resource type="PackedScene" uid="uid://iwwnm8y50fj4" path="res://Entities/Cameras/RotatingMenuCamera/RotatingMenuCamera.tscn" id="3_ujy7e"]
 [ext_resource type="PackedScene" uid="uid://baliedu8gj2t6" path="res://Entities/Dev/DevBall/DevBall.tscn" id="4_bt34x"]
-[ext_resource type="PackedScene" uid="uid://cops5jxx7rfek" path="res://Entities/Spawners/DevCharacterSpawner.tscn" id="5_fcc2i"]
-[ext_resource type="PackedScene" uid="uid://dvgf5klfwocwp" path="res://Entities/Dev/DevCharacter/DevCharacter.tscn" id="6_fqt4n"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b6wiu"]
 
@@ -72,22 +70,28 @@ shape = SubResource("CylinderShape3D_8c87r")
 [node name="Balls" type="Node" parent="." unique_id=11216694]
 
 [node name="DevBall" parent="Balls" unique_id=108498578 instance=ExtResource("4_bt34x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4052234, 5.6637106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 7)
 
 [node name="DevBall2" parent="Balls" unique_id=428966642 instance=ExtResource("4_bt34x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3144846, 1.4052234, 3.8496003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 0)
+
+[node name="DevBall7" parent="Balls" unique_id=899643248 instance=ExtResource("4_bt34x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, 0)
+
+[node name="DevBall8" parent="Balls" unique_id=475846128 instance=ExtResource("4_bt34x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
 
 [node name="DevBall3" parent="Balls" unique_id=1584979795 instance=ExtResource("4_bt34x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5877151, 3.655519, 1.555651)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 5)
 
 [node name="DevBall4" parent="Balls" unique_id=1236063421 instance=ExtResource("4_bt34x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8140306, 3.6555185, 0.79209876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 5)
 
 [node name="DevBall5" parent="Balls" unique_id=429541581 instance=ExtResource("4_bt34x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3093586, 3.655519, -3.3525727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -5)
 
 [node name="DevBall6" parent="Balls" unique_id=585853677 instance=ExtResource("4_bt34x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.520955, 3.655519, -3.1666582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -5)
 
 [node name="Enviroment" type="Node" parent="." unique_id=401634625]
 
@@ -100,6 +104,3 @@ shadow_enabled = true
 
 [node name="RotatingMenuCamera" parent="." unique_id=1492252526 instance=ExtResource("3_ujy7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
-
-[node name="DevCharacterSpawner" parent="." unique_id=1951118915 instance=ExtResource("5_fcc2i")]
-player = ExtResource("6_fqt4n")
