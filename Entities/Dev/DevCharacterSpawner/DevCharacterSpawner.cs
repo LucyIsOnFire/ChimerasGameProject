@@ -6,20 +6,43 @@ public partial class DevCharacterSpawner : Marker3D
     [Export]
     PackedScene devCharacter;
 
+    Node3D devCharacterContainer;
+
     Dictionary<string, Node> spawnedDevCharacters = [];
 
     public override void _Ready()
     {
         Multiplayer.PeerConnected += addDevCharacter;
         Multiplayer.PeerDisconnected += removeDevCharacter;
+        ENetworkManager.Instance.ENetServerCreated += addDevCharacter;
+    }
+    
+    void createDevCharacterContainer()
+    {
+        devCharacterContainer = new()
+        {
+            Name = "DevCharacters",
+        };
+
+        Global.MainScene.EntityRoot.AddChild(devCharacterContainer);
+
+        MultiplayerSpawner _multiplayerSpawner = new()
+        {
+            Name = "DevCharacterSpawner",
+            SpawnFunction = new(this, MethodName.spawnDevCharacter),
+            SpawnPath = GetPathTo(devCharacterContainer),
+        };
+
+        _multiplayerSpawner.AddSpawnableScene(devCharacter.ResourcePath);
+
+        devCharacterContainer.AddChild(_multiplayerSpawner);
     }
 
-    void addDevCharacter(long peerID)
+    public void addDevCharacter(long peerID)
     {
-        //GlobalMultiplayerSpawner.Instance.SpawnFunction = new(this, MethodName.spawnDevCharacter);
-
+        if (!IsInstanceValid(devCharacterContainer)) createDevCharacterContainer();
         if (!Multiplayer.IsServer()) return;
-        //GlobalMultiplayerSpawner.Instance.Spawn(peerID);
+        devCharacterContainer.GetNode<MultiplayerSpawner>("DevCharacterSpawner").Spawn(peerID);
     }
 
     void removeDevCharacter(long peerID)

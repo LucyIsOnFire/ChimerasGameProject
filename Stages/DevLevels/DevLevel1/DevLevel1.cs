@@ -4,5 +4,4 @@ using Godot;
 
 public partial class DevLevel1 : Node3D
 {
-
 }

@@ -1,3 +1,7 @@
+res://Entities/PhysicsPlayer/
+res://Assets/Dev/
+res://Common/Steamworks/
+res://Common/Global/
 res://Addons/at-icons/node3d/
 res://Common/Main/MainScene/
 res://Common/Main/SceneRoots/TransitionRoot/
@@ -14,4 +18,3 @@ res://
 res://Entities/Dev/DevBall/
 res://Common/MathFunctions/FRIDLerp/
 res://UI/
-res://Stages/

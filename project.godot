@@ -17,7 +17,8 @@ config/icon="uid://b4gim56t7ug4b"
 
 [autoload]
 
-NetworkHandler="*uid://dmd8ycyh6wv7o"
+Global="*uid://bskye0c85uiob"
+ENetworkManager="*uid://dmd8ycyh6wv7o"
 
 [display]
 

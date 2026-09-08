@@ -1,16 +1,18 @@
 using Godot;
 
-public partial class NetworkHandler : Node
+public partial class ENetworkManager : Node
 {
-    static public NetworkHandler Instance;
+    [Signal]
+    public delegate void ENetServerCreatedEventHandler(long peerID);
+
+    static public ENetworkManager Instance;
 
     const string IP_ADDRESS = "127.0.0.1";
     const int PORT = 9999;
 
     public override void _Ready()
     {
-        Instance= this;
-        Multiplayer.ServerDisconnected += ServerClosed;
+        Instance = this;
     }
 
     public bool ENetCreateServer()
@@ -25,6 +27,9 @@ public partial class NetworkHandler : Node
         }
 
         Multiplayer.MultiplayerPeer = peer;
+
+        EmitSignal(SignalName.ENetServerCreated, 1);
+
         return true;
     }
 
@@ -41,10 +46,5 @@ public partial class NetworkHandler : Node
 
         Multiplayer.MultiplayerPeer = peer;
         return true;
-    }
-
-    void ServerClosed()
-    {
-        GetTree().ReloadCurrentScene();
     }
 }
